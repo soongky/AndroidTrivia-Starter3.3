@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/titleFragment3">
+
+    <navigation
+        android:id="@+id/navigation2"
+        app:startDestination="@id/titleFragment" >
+        <fragment
+            android:id="@+id/titleFragment"
+            android:name="com.example.android.navigation.TitleFragment"
+            android:label="TitleFragment" />
+    </navigation>
+
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.example.android.navigation.GameFragment"
+        android:label="GameFragment"
+        tools:layout="@layout/fragment_game" />
+    <fragment
+        android:id="@+id/titleFragment3"
+        android:name="com.example.android.navigation.TitleFragment"
+        android:label="TitleFragment" >
+        <action
+            android:id="@+id/action_titleFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameOverFragment"
+        android:name="com.example.android.navigation.GameOverFragment"
+        android:label="GameOverFragment" />
+    <fragment
+        android:id="@+id/gameWonFragment"
+        android:name="com.example.android.navigation.GameWonFragment"
+        android:label="GameWonFragment" />
+</navigation>
