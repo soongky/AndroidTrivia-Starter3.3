@@ -18,6 +18,15 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+    super.onCreateOptionsMenu(menu, inflater)
+    inflater?.inflate(R.menu.winner_menu, menu)
+    // check if the activity resolves
+    if (null == getShareIntent().resolveActivity(activity!!.packageManager)) {
+    // hide the menu item if it doesn't resolve
+    menu?.findItem(R.id.share)?.setVisible(false)
+    }
+
     <item
         android:id="@+id/share"
         android:enabled="true"
@@ -25,4 +34,7 @@
         android:title="@string/share"
         android:visible="true"
         app:showAsAction="ifRoom" />
+
+
+
 </menu>
